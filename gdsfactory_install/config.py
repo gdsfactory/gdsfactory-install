@@ -1,4 +1,8 @@
-"""Store configuration."""
+"""Store configuration.
+
+This module provides path configuration for the gdsfactory_install package.
+It defines common paths used throughout the application.
+"""
 
 __all__ = ["PATH"]
 
@@ -12,9 +16,14 @@ repo_path = module_path.parent
 
 
 class Path:
-    module = module_path
-    repo = repo_path
-    cells = module / "cells"
+    """Path configuration for gdsfactory_install.
+    
+    Provides access to commonly used paths in the application.
+    """
+    
+    module = module_path  # Path to the module directory
+    repo = repo_path  # Path to the repository root
+    cells = module / "cells"  # Path to the cells directory
 
 
 PATH = Path()

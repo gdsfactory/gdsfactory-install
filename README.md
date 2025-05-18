@@ -1,4 +1,4 @@
-# gdsfactory-install 0.0.1
+# gdsfactory-install 0.0.2
 
 Install GDSFactory
 

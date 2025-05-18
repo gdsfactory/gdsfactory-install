@@ -5,6 +5,6 @@ Install GDSFactory
 ## Installation
 
 ```bash
-pip install gdsfactory
-gdsfactory-install
+pip install gdsfactory_install
+gfi install
 ```

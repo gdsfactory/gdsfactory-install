@@ -1,0 +1,128 @@
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name="gdsfactory-install"
+description="Install GDSFactory"
+classifiers = [
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Operating System :: OS Independent",
+]
+version="0.0.1"
+authors = [
+    {name = "GDSFactory", email = "contact@gdsfactory.com"},
+]
+keywords = ["python"]
+license = {file = "LICENSE"}
+dependencies = [
+    "matplotlib",
+]
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pytest_regressions",
+    "pytest-github-actions-annotate-failures",
+    ]
+docs = [
+    "jupytext",
+    "matplotlib",
+    "jupyter-book>=0.15.1,<1.1",
+    ]
+
+
+[tool.setuptools.packages]
+find = {}
+
+# [project.scripts]
+# gdsfactory-install = "gdsfactory-install.cli:cli"
+
+
+[tool.pytest.ini_options]
+testpaths = ["gdsfactory-install/", "tests"]
+# addopts = --tb=no
+addopts = '--tb=short'
+python_files = ["gdsfactory-install/*.py", "notebooks/*.ipynb", "tests/*.py"]
+norecursedirs = ["extra/*.py"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+[tool.pylsp-mypy]
+enabled = true
+live_mode = true
+strict = true
+
+[tool.setuptools.package-data]
+mypkg = ["*.csv", "*.yaml"]
+
+[tool.codespell]
+ignore-words-list = "te, te/tm, te, ba, fpr, fpr_spacing, ro, nd, donot, schem"
+skip = "pyproject.toml, uv.lock"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff]
+fix = true
+select = [
+  "B",  # flake8-bugbear
+  "C",  # flake8-comprehensions
+  "D",  # pydocstyle
+  "E",  # pycodestyle errors
+  "F",  # pyflakes
+  "I",  # isort
+  "T10",  # flake8-debugger
+  "UP",  # pyupgrade
+  "W"  # pycodestyle warnings
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "B905",  # `zip()` without an explicit `strict=` parameter
+    "C408",  # C408 Unnecessary `dict` call (rewrite as a literal)
+]
+
+[tool.tbump]
+# Uncomment this if your project is hosted on GitHub:
+# github_url = "https://github.com/<user or organization>/<project>/"
+
+[tool.tbump.version]
+current = "0.0.1"
+
+# Example of a semver regexp.
+# Make sure this matches current_version before
+# using tbump
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  '''
+
+[tool.tbump.git]
+message_template = "Bump to {new_version}"
+tag_template = "v{new_version}"
+
+# For each file to patch, add a [[file]] config
+# section containing the path of the file, relative to the
+# tbump.toml location.
+[[tool.tbump.file]]
+src = "README.md"
+
+[[tool.tbump.file]]
+src = "pyproject.toml"
+
+[[tool.tbump.file]]
+src = "gdsfactory-install/__init__.py"
+

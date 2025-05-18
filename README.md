@@ -2,10 +2,9 @@
 
 Install GDSFactory
 
-## Usage
-
 ## Installation
 
 ```bash
-make install
+pip install gdsfactory
+gdsfactory-install
 ```

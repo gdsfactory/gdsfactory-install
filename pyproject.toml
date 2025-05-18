@@ -4,7 +4,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name="gdsfactory-install"
+name="gdsfactory_install"
 description="Install GDSFactory"
 classifiers = [
 	"Programming Language :: Python :: 3.11",
@@ -42,7 +42,7 @@ docs = [
 find = {}
 
 [project.scripts]
-gdsfactory-install = "gdsfactory-install.main:main"
+gdsfactory-install = "gdsfactory_install.main:main"
 
 
 [tool.pytest.ini_options]

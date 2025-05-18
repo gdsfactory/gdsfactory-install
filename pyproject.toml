@@ -42,14 +42,14 @@ docs = [
 find = {}
 
 [project.scripts]
-gdsfactory-install = "gdsfactory_install.main:main"
+gdsfactory_install = "gdsfactory_install.main:main"
 
 
 [tool.pytest.ini_options]
-testpaths = ["gdsfactory-install/", "tests"]
+testpaths = ["gdsfactory_install/", "tests"]
 # addopts = --tb=no
 addopts = '--tb=short'
-python_files = ["gdsfactory-install/*.py", "notebooks/*.ipynb", "tests/*.py"]
+python_files = ["gdsfactory_install/*.py", "notebooks/*.ipynb", "tests/*.py"]
 norecursedirs = ["extra/*.py"]
 
 [tool.mypy]
@@ -124,5 +124,5 @@ src = "README.md"
 src = "pyproject.toml"
 
 [[tool.tbump.file]]
-src = "gdsfactory-install/__init__.py"
+src = "gdsfactory_install/__init__.py"
 

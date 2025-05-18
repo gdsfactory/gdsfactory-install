@@ -35,16 +35,16 @@ def install():
 
 
 @app.command()
-def create_env(env_name: str = typer.Argument(..., help="Name of the virtual environment")):
+def env():
     """Create a new virtual environment in the current directory."""
     uv_bin = uv.find_uv_bin()
-    env_path = Path.cwd() / env_name
+    env_path = Path.cwd() / ".venv"
     
     if env_path.exists():
-        typer.echo(f"Error: Environment '{env_name}' already exists")
+        typer.echo("Error: Environment '.venv' already exists")
         raise typer.Exit(code=1)
     
-    run_command([uv_bin, "venv", "create", str(env_path)])
+    run_command([uv_bin, "venv", str(env_path)])
     typer.echo(f"✅ Successfully created virtual environment at {env_path}")
 
 

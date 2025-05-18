@@ -43,7 +43,7 @@ docs = [
 find = {}
 
 [project.scripts]
-gdsfactory_install = "gdsfactory_install.main:main"
+gfi = "gdsfactory_install.main:app"
 
 
 [tool.pytest.ini_options]

@@ -11,7 +11,7 @@ classifiers = [
 	"Programming Language :: Python :: 3.12",
 	"Operating System :: OS Independent",
 ]
-version="0.0.4"
+version="0.0.5"
 authors = [
     {name = "GDSFactory", email = "contact@gdsfactory.com"},
 ]
@@ -98,7 +98,7 @@ ignore = [
 # github_url = "https://github.com/<user or organization>/<project>/"
 
 [tool.tbump.version]
-current = "0.0.4"
+current = "0.0.5"
 
 # Example of a semver regexp.
 # Make sure this matches current_version before
